@@ -131,7 +131,8 @@ class Preprocess(object):
             if n == 0:
                 self.image_stack = self.composites[n].visualize(**ee_collection_specifics.vizz_params_rgb(slug))
             else:
-                self.image_stack = ee.Image.cat([self.image_stack,self.composites[n].visualize(**ee_collection_specifics.vizz_params_rgb(slug))]).float()
+                #self.image_stack = ee.Image.cat([self.image_stack,self.composites[n].visualize(**ee_collection_specifics.vizz_params_rgb(slug))]).float()
+                self.image_stack = ee.Image.cat([self.image_stack,self.composites[n]]).float()
 
         if self.kernel_size == 1:
             self.base_names = ['training_pixels', 'test_pixels']
